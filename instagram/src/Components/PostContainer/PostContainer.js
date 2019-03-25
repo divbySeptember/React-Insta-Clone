@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import heart from "img/heart";
-import comment from "img/comment";
+import './PostContainer.css'
+import heart from "./heart.svg";
+import comment from "./comment.svg";
 import CommentSection from "../CommentSection/CommentSection"
 
 

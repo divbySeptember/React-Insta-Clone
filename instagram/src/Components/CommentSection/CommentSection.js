@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './CommentStyle.css';
 
 
 class CommentSection extends Component {
@@ -17,14 +18,7 @@ class CommentSection extends Component {
       handleAddComment = e => {
         this.setState({ [e.target.name] : e.target.value });
       }
-
-    /*  handleKeyPress = (e) => {
-        if(e.key == 'Enter'){
-            this.handleAddComment;
-        }
-      }
-       onKeyPress={this.handleKeyPress} <--goes in render input function
-     Tried to implement on keypress enter */
+    
 
       
   handleSubmitComment = () => {

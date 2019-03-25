@@ -1,8 +1,9 @@
 import React from "react";
-import logo from "instagram";
-import compass from "img/compass";
-import heart from "img/heart";
-import person from "img/user";
+import "./SearchBarStyle.css"
+import logo from "./instagram.svg";
+import compass from "./compass.svg";
+import heart from "./heart.svg";
+import person from "./user.svg";
 
 const SearchBar = () => {
         return (
@@ -16,8 +17,8 @@ const SearchBar = () => {
                     <input className="search__input" type="text" placeholder="search"/>
                 </div>
                 <div className="div-25">
-                    <img className="search__Images search__Images-group" src={compass}/>
-                    <img className="search__Images search__Images-group" src={heart}/>
+                    <img className="search__Images a" src={compass}/> 
+                     <img className="search__Images search__Images-group" src={heart}/> 
                     <img className="search__Images search__Images-group" src={person}/>
                 </div>
             </div>
