@@ -24,7 +24,7 @@ class CommentSection extends Component {
   handleSubmitComment = () => {
     const { comments } = this.state;
     comments.push({
-      username: "Cris_cookie_",
+      username: "Anthony_September",
       text: this.state.newComment
     });
     this.setState({ comments, newComment: '' });

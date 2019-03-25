@@ -17,25 +17,30 @@
     height: 6vw;
     align-items: center;
     border-bottom: 2px solid #ccc;
+
 }
 
 .search h4 {
-    border-left: .1rem solid #ccc;
+    border-left: .1rem solid rgb(155, 155, 155);
     font-size: 2rem;
     font-family: 'Lobster', cursive;
     font-weight: normal;
     width: 50%;
     text-align: center;
     cursor: pointer;
+    padding: 0 10px;
 }
 
 .search__Images {
     width: 2rem;
+    
 }
 
 .search__Images-logo {
     margin-left: 30%;
     width: 12%;
+    margin-top: 50px;
+    padding: 0 10px;
 }
 
 .search img:hover {
