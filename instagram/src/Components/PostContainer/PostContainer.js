@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import heart from "img/heart";
 import comment from "img/comment";
 import CommentSection from "../CommentSection/CommentSection"
+
+
+
+
+
 const PostContainer = props => {
         return(
             <div className="post">
@@ -16,7 +21,7 @@ const PostContainer = props => {
                         </div>
                         <div className="post__icons">
                             <img className="post__icon" src={heart}/>
-                            <img className="post__icon post__icon-heart" src={comment}/>
+                            <img className="post__icon" src={comment}/>
                         </div>
                         <div className="likes">{post.likes} likes</div>
                         <CommentSection comments={post.comments} time={post.timestamp}/>
