@@ -1,36 +1,52 @@
-import React, { Component } from "react";
-import './PostContainer.css'
-import heart from "./heart.svg";
-import comment from "./comment.svg";
-import CommentSection from "../CommentSection/CommentSection"
+import React from 'react';
+// import Moment from 'react-moment';
+import './PostContainer.css';
+import CommentSection from '../CommentSection/CommentSection';
+import PropTypes from 'prop-types'
+
+
+function PostContainer(props) {
+	const post = props.post;
+	return (
+		<div className="PostContainer">
+			<div className="PostContainer__header">
+				<img src={post.thumbnailUrl} />
+				<h3 className="PostContainer__username">{post.username}</h3>
+			</div>
+
+			<div className="PostContainer__image">
+				<img src={post.imageUrl} />
+                <div className="newIcons">
+                    <i class="far fa-heart" > {post.likes}</i>
+                    <i class="far fa-comment"></i>
+                </div>
+			</div>
+
+			<div className="PostContainer__body">
+				<div className="PostContainer__indications">
+					{/* <h3 className="PostContainer__likes">{post.likes} likes</h3> */}
+				</div>
+
+				<CommentSection comments={post.comments}>
+					<div className="PostContainer__timestamp">
+						{/* <Moment format="YYYY/MM/DD">{post.timestamp}</Moment> */}
+					</div>
+				</CommentSection>
+			</div>
+
+		</div>
+	);
+};
 
 
 
-
-
-const PostContainer = props => {
-        return(
-            <div className="post">
-                {props.data.map(post => (
-                    <div className="post__individual">
-                        <div className="post__head">
-                            <img className="post__thumbnail" src={post.thumbnailUrl} alt={post.username}/>
-                            <div className="post__username">{post.username}</div>
-                        </div>
-                        <div>
-                            <img className="post__image" src={post.imageUrl} alt="An instapost"/>
-                        </div>
-                        <div className="post__icons">
-                            <img className="post__icon" src={heart}/>
-                            <img className="post__icon" src={comment}/>
-                        </div>
-                        <div className="likes">{post.likes} likes</div>
-                        <CommentSection comments={post.comments} time={post.timestamp}/>
-                    </div>
-                ))}
-            </div>
-        )
-    }
-
-
-export default PostContainer
+PostContainer.propTypes = {
+    data: PropTypes.shape({
+        thumbnailUrl: PropTypes.string,
+        username: PropTypes.string,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number       
+    })
+};
+ 
+export default PostContainer;

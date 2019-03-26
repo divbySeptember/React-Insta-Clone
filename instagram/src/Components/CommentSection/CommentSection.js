@@ -1,53 +1,72 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './CommentStyle.css';
-
-
 class CommentSection extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            newComment: '',
-            comments: []
-          };
-    }
 
-    componentDidMount() {
-        this.setState({comments: this.props.comments });
-      }
+	constructor(props) {
+		super();
 
-      handleAddComment = e => {
-        this.setState({ [e.target.name] : e.target.value });
-      }
-    
+		this.state = {
+			username: "Anthony_Jarod",
+			comments: [],
+			newCommentText: ""
+		}
+	}
 
-      
-  handleSubmitComment = () => {
-    const { comments } = this.state;
-    comments.push({
-      username: "Anthony_September",
-      text: this.state.newComment
-    });
-    this.setState({ comments, newComment: '' });
-  }
+	componentDidMount() {
+		this.setState({
+			comments: this.props.comments
+		});
+	}
 
-    render() {
-        return(
-        <div>
-           {this.props.comments.map(comment => (
-               <div className = "comments">
-                   <div className="comments__User">{comment.username} <span className="comments__Text">{comment.text}</span></div>
-               </div>
-           ))}
+	submitNewComment = (event) => {
+		if (event.keyCode === 13) {
+			const newComment = {
+				username: this.state.username,
+				text: this.state.newCommentText
+			}
 
-           <div className="comments__time">{this.props.time}</div>
-           <div className = "comment__border"></div>
-           <div className="comment__Input-container">
-           <input className="comment__Input" type="text" name="newComment" onChange={this.handleAddComment} value={this.state.newComment} placeholder="Add a comment...."/>
-           <button className="comment__button" onClick={this.handleSubmitComment}>Add</button>
-           </div>
-        </div>
-        )
-    }
-}
+			this.setState({
+				comments: [...this.state.comments, newComment],
+				newCommentText: ""
+			})
+		}
+	}
 
-export default CommentSection
+	updateNewComment = (event) => {
+		this.setState({
+			newCommentText: event.target.value
+		});
+	}
+
+	render () {
+		return (
+			<div className="CommentSection">
+				<div className="CommentSection__list">
+					{this.state.comments.map((comment, index) => {
+						return (
+							<div className="CommentSection__comment" key={index}>
+								<h3 className="CommentSection__comment-username">{comment.username}:</h3>
+								<p className="CommentSection__comment-body">{comment.text}</p>
+							</div>
+						);
+					})}
+				</div>
+
+				{this.props.children}
+
+				<div className="CommentSection__add">
+					<input
+						className="CommentSection__addField"
+						type="text"
+						value={this.state.newCommentText}
+						onChange={this.updateNewComment}
+						onKeyDown={this.submitNewComment}
+						placeholder="Add a comment..."
+					></input>
+				</div>
+			</div>
+		);
+	}
+};
+
+export default CommentSection;

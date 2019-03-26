@@ -1,28 +1,24 @@
-import React from "react";
-import "./SearchBarStyle.css"
-import logo from "./instagram.svg";
-import compass from "./compass.svg";
-import heart from "./heart.svg";
-import person from "./user.svg";
+import React, { Component } from 'react';
 
-const SearchBar = () => {
-        return (
-            <div className="flex search">
-                <div className="flex div-25">
-                    <img className="search__Images search__Images-logo" src={logo}/>
-                    <hr/>
-                    <h4 className="" >Instagram</h4>
-                </div>
-                <div className="div-50">
-                    <input className="search__input" type="text" placeholder="search"/>
-                </div>
-                <div className="div-25">
-                    <img className="search__Images a" src={compass}/> 
-                     <img className="search__Images search__Images-group" src={heart}/> 
-                    <img className="search__Images search__Images-group" src={person}/>
-                </div>
-            </div>
-        );
-}
+class SearchBar extends Component {
 
-export default SearchBar
+	submitFilter = (event) => {
+	  const criterion = this.input.value;
+	  this.props.filterPosts(criterion);
+	}
+
+	render() {
+		return (
+			<div className="SearchBar">
+                <input className="SearchBar-field" 
+                type="text" 
+                onChange={this.submitFilter} 
+                ref={input => this.input = input} 
+                placeholder=" Search">
+                </input>
+			</div>
+		);
+	}
+};
+
+export default SearchBar;
