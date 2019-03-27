@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchBar from './Components/SearchBar/SearchBar';
 import PostContainer from './Components/PostContainer/PostContainer';
+import LoginPage from './components/Login/LoginPage';
+import withAuthenticate from './components/Authentication/withAuthenticate';
 import postData from './dummy-data.js';
 
 class App extends Component {
@@ -43,6 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <ComponentFromWithAuthenticate />
         <header>
           <div className="mainLogo">
             <i class="fab fa-instagram"></i>
@@ -67,5 +70,7 @@ class App extends Component {
     );
   }
 }
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsContainer)(LoginPage);
 
 export default App;

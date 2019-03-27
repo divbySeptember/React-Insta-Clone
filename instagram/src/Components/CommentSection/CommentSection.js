@@ -47,6 +47,7 @@ class CommentSection extends Component {
 							<div className="CommentSection__comment" key={index}>
 								<h3 className="CommentSection__comment-username">{comment.username}:</h3>
 								<p className="CommentSection__comment-body">{comment.text}</p>
+                
 							</div>
 						);
 					})}

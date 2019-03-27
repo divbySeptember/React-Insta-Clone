@@ -1,12 +1,13 @@
 import React from 'react';
-// import Moment from 'react-moment';
+import moment from 'moment';
 import './PostContainer.css';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types'
 
 
 function PostContainer(props) {
-	const post = props.post;
+    const post = props.post;
+    console.log(post.timestamp)
 	return (
 		<div className="PostContainer">
 			<div className="PostContainer__header">
@@ -27,11 +28,13 @@ function PostContainer(props) {
 					{/* <h3 className="PostContainer__likes">{post.likes} likes</h3> */}
 				</div>
 
-				<CommentSection comments={post.comments}>
+				<CommentSection comments={post.comments } />
 					<div className="PostContainer__timestamp">
-						{/* <Moment format="YYYY/MM/DD">{post.timestamp}</Moment> */}
+                    {moment(post.timestamp).format('YYYY/MM/DD')}
+
+                    
 					</div>
-				</CommentSection>
+				
 			</div>
 
 		</div>
