@@ -1,51 +1,58 @@
-.post {
-    width: 40%;
-    display: block;
-    margin: 4% auto;
-}
-
-.post__individual {
-     margin-top: 7%;
-     border: .5px solid gray;
-}
-.post__individual:first-of-type {
-    margin-top: 0;
-}
-.post__head {
+.PostContainer {
+	border: 0.5px solid rgb(208, 208, 208);
+	max-width: 600px;
+    margin-bottom: 40px;
     display: flex;
-    margin-bottom: 2%;
+    flex-direction: column;
 }
 
-.post__thumbnail {
-    width: 10%;
-    height: 100%;
-    border-radius: 1.5rem;
-    margin: 1% 2% 0% 1%;
+.PostContainer__header {
+	width: 100%;
+	position: relative;
+	height: 60px;
 }
 
-.post__username {
-    align-self: center;
-    margin-left: 1%;
-    font-weight: 700;
-    font-size: 1.5rem;
+.PostContainer__header img {
+	display: inline-block;
+	height: 30px;
+	border-radius: 50%;
+	padding: 15px;
 }
 
-.post__image {
-    width: 100%;
+.PostContainer__header h3 {
+	position: absolute;
+	display: inline;
+    margin-top: 20px;
+    
 }
 
-.post__icon{
-    width: 1.6rem;
-    fill: currentColor;
-    margin: 1% 1% 0% 1%
+.PostContainer__image {
+	width: 100%;
 }
 
-.post__icon-heart {
-    width: 2rem;
+.PostContainer__image img {
+	background-size: contain;
+	width: 100%;
 }
 
-.likes {
-    margin: 1% 0 0 1.5%;
-    font-size: 1.3rem;
-    font-weight: 600;
+.PostContainer__body {
+	margin: 15px;
+}
+
+.PostContainer__likes {
+	display: inline;
+}
+
+.PostContainer__timestamp {
+	margin: 10px 0 10px 0;
+}
+
+
+.newIcons{
+    padding: 10px 5px;
+}
+.newIcons i {
+    font-size: 20px;
+    padding: 0 10px;
+    color: rgb(164, 164, 164);
 }
